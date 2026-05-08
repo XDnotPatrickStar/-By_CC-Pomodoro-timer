@@ -1,0 +1,86 @@
+<div class="settings-container">
+  <h2 class="settings-title">设置</h2>
+
+  <!-- Duration settings -->
+  <section class="settings-section">
+    <h3>时长设置（分钟）</h3>
+    <div class="form-row">
+      <label>专注时长</label>
+      <input type="number" id="setting-focus" min="1" max="120" value="25">
+    </div>
+    <div class="form-row">
+      <label>短休息</label>
+      <input type="number" id="setting-short-break" min="1" max="60" value="5">
+    </div>
+    <div class="form-row">
+      <label>长休息</label>
+      <input type="number" id="setting-long-break" min="1" max="60" value="15">
+    </div>
+    <div class="form-row">
+      <label>长休息间隔（次）</label>
+      <input type="number" id="setting-interval" min="1" max="10" value="4">
+    </div>
+  </section>
+
+  <!-- Notification settings -->
+  <section class="settings-section">
+    <h3>提醒</h3>
+    <div class="form-row toggle-row">
+      <label>启用声音</label>
+      <label class="toggle">
+        <input type="checkbox" id="setting-sound" checked>
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+    <div class="form-row">
+      <label>音量</label>
+      <input type="range" id="setting-volume" min="0" max="100" value="80">
+      <span id="volume-value">80%</span>
+    </div>
+  </section>
+
+  <!-- Behavior settings -->
+  <section class="settings-section">
+    <h3>行为</h3>
+    <div class="form-row toggle-row">
+      <label>自动开始休息</label>
+      <label class="toggle">
+        <input type="checkbox" id="setting-auto-break">
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+    <div class="form-row toggle-row">
+      <label>关闭到托盘</label>
+      <label class="toggle">
+        <input type="checkbox" id="setting-tray" checked>
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+    <div class="form-row toggle-row">
+      <label>窗口置顶</label>
+      <label class="toggle">
+        <input type="checkbox" id="setting-ontop">
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+  </section>
+
+  <!-- Mascot -->
+  <section class="settings-section">
+    <h3>萌娘设置</h3>
+    <div class="mascot-preview-large">
+      <img id="mascot-preview" src="" alt="preview" style="display:none">
+      <div id="mascot-preview-placeholder">(。・ω・。)ﾉ</div>
+    </div>
+    <div class="mascot-actions">
+      <button id="btn-import-mascot" class="btn btn-secondary">导入图片</button>
+      <button id="btn-reset-mascot" class="btn btn-ghost">恢复默认</button>
+    </div>
+  </section>
+
+  <!-- Actions -->
+  <div class="settings-actions">
+    <button id="btn-save-settings" class="btn btn-primary">保存设置</button>
+    <button id="btn-cancel-settings" class="btn btn-ghost">取消</button>
+  </div>
+</div>

@@ -1,0 +1,203 @@
+:root {
+  --bg-primary: #0d0d1a;
+  --bg-secondary: #12122a;
+  --bg-card: #1a1a35;
+  --bg-card-hover: #1f1f3d;
+  --accent-pink: #ff4d7d;
+  --accent-pink-light: #ff7099;
+  --accent-pink-glow: rgba(255, 77, 125, 0.25);
+  --accent-blue: #1a3a5c;
+  --accent-purple: #6c3fa0;
+  --accent-cyan: #4dc9c0;
+  --text-primary: #f0e6ff;
+  --text-secondary: #a098c0;
+  --text-muted: #5c5670;
+  --radius: 18px;
+  --radius-sm: 10px;
+  --radius-xs: 6px;
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --font-main: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow: hidden;
+  user-select: none;
+  /* Subtle background pattern */
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 77, 125, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 80%, rgba(108, 63, 160, 0.06) 0%, transparent 60%);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Navbar */
+#navbar {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 16px;
+  background: rgba(18, 18, 42, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  -webkit-app-region: drag;
+}
+
+.nav-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+  padding: 7px 18px;
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all var(--transition);
+  -webkit-app-region: no-drag;
+  position: relative;
+}
+
+.nav-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.nav-btn.active {
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent-pink), #e04070);
+  box-shadow: 0 2px 12px var(--accent-pink-glow);
+}
+
+#view-container {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.view {
+  display: none;
+  height: 100%;
+  padding: 20px;
+}
+
+.view.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Shared button styles */
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input {
+  font-family: inherit;
+}
+
+.btn {
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: var(--radius-xs);
+  transition: all var(--transition);
+  outline: none;
+  letter-spacing: 0.3px;
+}
+
+.btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-pink), #d93a60);
+  color: #fff;
+  padding: 10px 26px;
+  min-width: 80px;
+  box-shadow: 0 2px 12px var(--accent-pink-glow);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--accent-pink-light), #e04070);
+  box-shadow: 0 4px 20px var(--accent-pink-glow);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 1px 8px var(--accent-pink-glow);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-primary);
+  padding: 9px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  padding: 9px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Animations */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 2px 12px var(--accent-pink-glow); }
+  50% { box-shadow: 0 4px 24px rgba(255, 77, 125, 0.4); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.view.active {
+  animation: fadeInUp 0.3s ease;
+}

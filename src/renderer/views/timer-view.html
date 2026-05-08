@@ -1,0 +1,46 @@
+<div class="timer-container">
+  <!-- Mascot area -->
+  <div id="mascot-area">
+    <img id="mascot-img" src="" alt="mascot" style="display:none">
+    <div id="mascot-placeholder">(。・ω・。)ﾉ</div>
+  </div>
+
+  <!-- Timer circle -->
+  <div class="timer-circle-wrapper">
+    <svg class="timer-svg" viewBox="0 0 240 240">
+      <circle class="timer-ring-bg" cx="120" cy="120" r="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="8"/>
+      <circle id="progress-ring" cx="120" cy="120" r="100" fill="none" stroke="var(--accent-pink)" stroke-width="8"
+              stroke-linecap="round" transform="rotate(-90 120 120)"
+              stroke-dasharray="628.32" stroke-dashoffset="0"/>
+    </svg>
+    <div class="timer-inner">
+      <div id="timer-display" class="timer-display">25:00</div>
+      <div id="session-label" class="session-label focus">FOCUS</div>
+    </div>
+  </div>
+
+  <!-- Task input -->
+  <input id="task-input" class="task-input" type="text" placeholder="正在做什么...？" maxlength="100">
+
+  <!-- Controls -->
+  <div class="timer-controls">
+    <button id="btn-start" class="btn btn-primary">开始</button>
+    <button id="btn-pause" class="btn btn-primary" style="display:none">暂停</button>
+    <button id="btn-skip" class="btn btn-secondary" disabled>跳过</button>
+    <button id="btn-reset" class="btn btn-ghost" disabled>重置</button>
+  </div>
+
+  <!-- Stats -->
+  <div class="timer-stats">
+    <div class="stat-item">
+      <span class="stat-label">今日</span>
+      <span id="today-count" class="stat-value">0</span>
+      <span class="stat-unit">番茄</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-label">周期</span>
+      <span id="cycle-progress" class="stat-value">0 / 4</span>
+    </div>
+  </div>
+</div>

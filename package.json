@@ -1,0 +1,38 @@
+{
+  "name": "pomodoro-timer",
+  "version": "1.0.0",
+  "description": "二次元风格桌面番茄钟",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win",
+    "build:portable": "electron-builder --win portable"
+  },
+  "build": {
+    "appId": "com.pomodoro.anime-timer",
+    "productName": "萌娘番茄钟",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": ["portable"],
+      "icon": "assets/icon.png",
+      "signAndEditExecutable": false
+    }
+  },
+  "keywords": ["pomodoro", "timer", "electron"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0"
+  },
+  "dependencies": {
+    "electron-store": "^8.2.0"
+  }
+}
